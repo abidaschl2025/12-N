@@ -5,18 +5,18 @@ from sklearn.linear_model import LinearRegression
 #Load data from CSV
 df=pd.read_csv("student_scores.csv")
 #Split data into features (x) and target (y)
-x = df.iloc[:, :-1].values  
+X = df.iloc[:, :-1].values  
 y = df.iloc[:, -1].values
 #Train-test split (80% training, 20% testing)
-x_train, x_test, y_train, y_test = train_test_split (x,y, test_size=0.2, state=42)
+X_train, X_test, y_train, y_test = train_test_split (X, y, test_size = 0.2, state = 42)
 #Train the model
 model = LinearRegression()
-model.fit(x_train, y_train)
+model.fit(X_train, y_train)
 #Streamlit user interface
 st.title("Exam Score Predictor")
 st.write("Enter hours studied to predict the exam score.")
 #User input
-hours=st.number_input("Hours Studied:", min_value=0.0, step=0.1)
+hours = st.number_input("Hours Studied:", min_value=0.0, step=0.1)
 #Predict button
 if st.button("Predict Score:"):
   predicted_score = model.predict([[hours]])[0]
