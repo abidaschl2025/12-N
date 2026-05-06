@@ -8,7 +8,7 @@ df=pd.read_csv("student_scores.csv")
 X = df.iloc[:, :-1].values  
 y = df.iloc[:, -1].values
 #Train-test split (80% training, 20% testing)
-X_train, X_test, y_train, y_test = train_test_split (X, y, test_size = 0.2, state = 42)
+X_train, X_test, y_train, y_test = train_test_split (X, y, test_size = 0.2, random_state = 42)
 #Train the model
 model = LinearRegression()
 model.fit(X_train, y_train)
